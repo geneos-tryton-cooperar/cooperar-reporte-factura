@@ -1,0 +1,144 @@
+{{def( header_a, detalle_a, footer_a)}}
+<!DOCTYPE document SYSTEM "rml.dtd">
+<document>
+  <docinit>
+    <registerTTFont faceName="LiberationMono" fileName="LiberationMono-Regular.ttf"/>
+    <registerTTFont faceName="LiberationMono-Bold" fileName="LiberationMono-Bold.ttf"/>
+    <registerTTFont faceName="LiberationMono-BoldItalic" fileName="LiberationMono-BoldItalic.ttf"/>
+    <registerFontFamily name="LiberationMono" normal="LiberationMono" bold="LiberationMono-Bold" boldItalic="LiberationMono-Bold"/>
+  </docinit>
+
+    <template>
+        <pageTemplate id="main">
+            <!-- ++++++++++++++++++++++  GRAFICOS   ++++++++++++++++++++++ -->
+            <pageGraphics>
+                {{script}}
+                import os
+                fondo = os.path.join(os.path.dirname(os.path.realpath(__file__)), "factura_a_cooperar_fondo.png")
+                {{endscript}}
+                <image file="{{fondo}}" x="0cm" y="0cm" width="21.0cm" height="29.69cm"/>
+            </pageGraphics>
+
+            <!-- ++++++++++++++++++++++  FRAMES   ++++++++++++++++++++++ -->
+            <!-- Generado por script -->
+            <frame id="apellidoynombre" x1="3.5537cm" y1="23.9362cm" width="15.0351cm" height="0.6376cm" />
+            <frame id="iva" x1="4.2775cm" y1="21.4934cm" width="5.5292cm" height="0.6376cm" />
+            <frame id="legajo7" x1="3.5622cm" y1="22.9373cm" width="15.0266cm" height="0.6376cm" />
+            <frame id="condiciones" x1="4.2775cm" y1="20.2961cm" width="5.5292cm" height="0.6376cm" />
+            <frame id="cuit_cliente" x1="13.6385cm" y1="21.4934cm" width="6.6025cm" height="0.6376cm" />
+            <frame id="nrofactura" x1="14.6759cm" y1="27.9342cm" width="3.8989cm" height="0.6376cm" />
+            <frame id="fecha" x1="16.0718cm" y1="27.0004cm" width="2.4817cm" height="0.6376cm" />
+            <frame id="nro_remito" x1="13.63cm" y1="20.2755cm" width="6.6025cm" height="0.6376cm" />
+
+            <frame id="tabladetalle" x1="0.1226cm" y1="7.2931cm" width="20.7449cm" height="11.504cm" />
+
+            <frame id="total" x1="17.9973cm" y1="2.3274cm" width="2.8445cm" height="0.6376cm" />
+            <frame id="porciva" x1="13.5355cm" y1="3.8496cm" width="2.8445cm" height="0.6376cm" />
+            <frame id="subtotaliva" x1="17.9973cm" y1="3.8496cm" width="2.8445cm" height="0.6376cm" />
+            <frame id="subtotal" x1="17.9973cm" y1="5.8729cm" width="2.8445cm" height="0.6376cm" />
+            <frame id="subtotalexento" x1="6.255cm" y1="4.5543cm" width="2.8445cm" height="0.6376cm" />
+            <frame id="subtotalgravado" x1="6.2535cm" y1="3.779cm" width="2.8445cm" height="0.6376cm" />
+            
+
+            <!-- /Generado por script -->
+        </pageTemplate>
+    </template>
+
+
+    <!-- ++++++++++++++++++++++  STYLESHEETS   ++++++++++++++++++++++ -->
+    <stylesheet>    
+        <paraStyle name="txtTitulo" fontName="LiberationMono" fontSize="8" leading="2" spaceBefore="0" spaceAfter="6" />
+        <paraStyle name="txtHeader" fontName="LiberationMono" fontSize="8" leading="2" spaceBefore="0" spaceAfter="6" alignment="center"/>
+        <paraStyle name="txtHeaderChico" fontName="LiberationMono" fontSize="6" leading="2" spaceBefore="0" spaceAfter="6" alignment="center"/>
+        <paraStyle name="txtTablaIzquierda" fontName="LiberationMono" fontSize="8" leading="2" spaceBefore="0" spaceAfter="6" alignment="left"/>
+        <paraStyle name="txtTituloDerecha" fontName="LiberationMono" fontSize="8" leading="2" spaceBefore="0" spaceAfter="6" alignment="right"/>
+        <paraStyle name="txtNegrita" fontName="LiberationMono-Bold" fontSize="8" leading="2" spaceBefore="0" spaceAfter="6"/>
+        <paraStyle name="txtNegritaDerecha" fontName="LiberationMono-Bold" fontSize="8" leading="2" spaceBefore="0" spaceAfter="6" alignment="right"/>
+        <paraStyle name="txtVacio" fontName="LiberationMono-Bold" fontSize="8" leading="1" spaceBefore="0" spaceAfter="6"/>
+        <paraStyle name="txtLeyenda" fontName="LiberationMono" fontSize="8" leading="8" spaceBefore="3" spaceAfter="3" alignment="justify" />
+        <paraStyle name="txtVencimientos" fontName="LiberationMono" fontSize="12" leading="3" spaceBefore="0" spaceAfter="6" alignment="center" />
+        <paraStyle name="txtRegular" fontName="LiberationMono" fontSize="9" leading="0.35cm" spaceBefore="0" spaceAfter="0"/>
+        <paraStyle name="paraTabla" fontName="LiberationMono" fontSize="7" leading="0.35cm" spaceBefore="0" spaceAfter="0"/>
+        <paraStyle name="centrado" fontName="LiberationMono" fontSize="8" leading="0.35cm" spaceBefore="0" spaceAfter="0" alignment="center"/>
+
+        <blockTableStyle id="tabla-conceptos-facturados">
+            <blockFont name="LiberationMono" size="6"/>
+            <!--<blockSpan start="0,0" stop="1,0"/>-->
+        </blockTableStyle>
+
+    </stylesheet>
+
+    <!-- ++++++++++++++++++++++      STORY      ++++++++++++++++++++++ -->
+    <story>
+         <!-- +++++++++++++++++++++ Header +++++++++++++++++++++ -->
+        <setNextFrame name="nrofactura"/>
+        <nextFrame/>
+        <para style="txtTitulo">{{header_a["nrofactura"]}}</para>
+
+        <setNextFrame name="apellidoynombre"/>
+        <nextFrame/>
+        <para style="txtTitulo">{{header_a["apellidoynombre"]}}</para>
+
+        <setNextFrame name="fecha"/>
+        <nextFrame/>
+        <para style="txtTitulo">{{header_a["fecha"]}}</para>
+
+        <setNextFrame name="legajo7"/>
+        <nextFrame/>
+        <para style="txtTitulo">{{header_a["legajo7"]}}</para>
+
+        <setNextFrame name="iva"/>
+        <nextFrame/>
+        <para style="txtTitulo">{{header_a["iva"]}}</para>
+
+        <setNextFrame name="cuit_cliente"/>
+        <nextFrame/>
+        <para style="txtTitulo">{{header_a["cuit_cliente"]}}</para>
+
+        <setNextFrame name="condiciones"/>
+        <nextFrame/>
+        <para style="txtTitulo">{{header_a["condiciones"]}}</para>
+
+        <setNextFrame name="nro_remito"/>
+        <nextFrame/>
+        <para style="txtTitulo">{{header_a["nro_remito"]}}</para>
+
+         <!-- +++++++++++++++++++++ Detalle +++++++++++++++++++++ -->
+
+         <setNextFrame name="tabladetalle"/>
+         <nextFrame/>
+         <blockTable colWidths="3cm,10cm,3cm,3cm" repeatRows="1" style="tabla-conceptos-facturados">
+             {{for (linea) in detalle_a["tabladetalle"]}}
+             <tr><td>{{linea[2]}}</td><td>{{linea[0]}}</td><td>{{linea[1]}}</td><td>{{linea[3]}}</td></tr>
+             {{endfor}}
+
+         </blockTable>
+
+         <!-- +++++++++++++++++++++ Footer +++++++++++++++++++++ -->  
+
+         <setNextFrame name="subtotal"/>
+         <nextFrame/>
+         <para style="txtHeader">{{footer_a["subtotal"]}}</para>
+
+         <setNextFrame name="subtotalexento"/>
+         <nextFrame/>
+         <para style="txtHeader">{{footer_a["subtotalexento"]}}</para>
+
+         <setNextFrame name="subtotalgravado"/>
+         <nextFrame/>
+         <para style="txtHeader">{{footer_a["subtotalgravado"]}}</para>
+
+         <setNextFrame name="porciva"/>
+         <nextFrame/>
+         <para style="txtHeader">{{footer_a["porciva"]}}</para>
+
+         <setNextFrame name="subtotaliva"/>
+         <nextFrame/>
+         <para style="txtHeader">{{footer_a["subtotaliva"]}}</para>
+
+         <setNextFrame name="total"/>
+         <nextFrame/>
+         <para style="txtHeader">{{footer_a["total"]}}</para>
+
+    </story>
+</document>
