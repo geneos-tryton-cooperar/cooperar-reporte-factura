@@ -12,12 +12,14 @@ class MyInvoiceReport(Report):
 
         #import pudb;pu.db
         
-        if invoice.invoice_type.id == 1: #Factura A
+        #if invoice.invoice_type.id == 1: #Factura A
+        if invoice.invoice_type.id == 17: #Factura A
             datos = report_creator.crear_data_factura_a(invoice)
             rml_text = template_fac_a.get(*datos)
             out = rml2pdf.parseString(rml_text)
             return out.read()
-        elif invoice.invoice_type.id == 6:  #Factura B
+        #elif invoice.invoice_type.id == 6:  #Factura B
+        elif invoice.invoice_type.id == 18:  #Factura B
             datos = report_creator.crear_data_factura_b(invoice)
             rml_text = template_fac_b.get(*datos)
             out = rml2pdf.parseString(rml_text)
