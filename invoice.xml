@@ -56,7 +56,7 @@ this repository contains the full copyright notices and license terms. -->
         <record model="ir.action.act_window" id="act_invoice_out_invoice_b_form">
             <field name="name">Facturas B</field>
             <field name="res_model">account.invoice</field>
-            <field name="domain">[('type', '=', 'out_invoice'), ('invoice_type.id', '=', 2)]</field>
+            <field name="domain">[('type', '=', 'out_invoice'), ('invoice_type.id', '=', 6)]</field>
             <field name="context">{'type': 'out_invoice'}</field>
             <field name="search_value"></field>
         </record>
@@ -73,25 +73,25 @@ this repository contains the full copyright notices and license terms. -->
         <record model="ir.action.act_window.domain" id="act_invoice_out_invoice_domain_draft_b">
             <field name="name">Borrador</field>
             <field name="sequence" eval="10"/>
-            <field name="domain">[('state', '=', 'draft'), ('invoice_type.id', '=', 2)]</field>
+            <field name="domain">[('state', '=', 'draft'), ('invoice_type.id', '=', 6)]</field>
             <field name="act_window" ref="act_invoice_out_invoice_b_form"/>
         </record>
         <record model="ir.action.act_window.domain" id="act_invoice_out_invoice_domain_validated_b">
             <field name="name">Validado</field>
             <field name="sequence" eval="20"/>
-            <field name="domain">[('state', '=', 'validated'), ('invoice_type.id', '=', 2)]</field>
+            <field name="domain">[('state', '=', 'validated'), ('invoice_type.id', '=', 6)]</field>
             <field name="act_window" ref="act_invoice_out_invoice_b_form"/>
         </record>
         <record model="ir.action.act_window.domain" id="act_invoice_out_invoice_domain_posted_b">
             <field name="name">Confirmado</field>
             <field name="sequence" eval="30"/>
-            <field name="domain">[('state', '=', 'posted'), ('invoice_type.id', '=', 2)]</field>
+            <field name="domain">[('state', '=', 'posted'), ('invoice_type.id', '=', 6)]</field>
             <field name="act_window" ref="act_invoice_out_invoice_b_form"/>
         </record>
         <record model="ir.action.act_window.domain" id="act_invoice_out_invoice_domain_all_b">
             <field name="name">Todo</field>
             <field name="sequence" eval="9999"/>
-            <field name="domain">[('invoice_type.id', '=', 2)]</field>
+            <field name="domain">[('invoice_type.id', '=', 6)]</field>
             <field name="act_window" ref="act_invoice_out_invoice_b_form"/>
         </record>
 
@@ -151,7 +151,7 @@ this repository contains the full copyright notices and license terms. -->
         <record model="ir.action.act_window" id="act_invoice_out_invoice_ncb_form">
             <field name="name">Notas de Credito B</field>
             <field name="res_model">account.invoice</field>
-            <field name="domain">[('type', '=', 'out_invoice'), ('invoice_type.id', '=', 4)]</field>
+            <field name="domain">[('type', '=', 'out_invoice'), ('invoice_type.id', '=', 8)]</field>
             <field name="context">{'type': 'out_invoice'}</field>
             <field name="search_value"></field>
         </record>
@@ -168,25 +168,25 @@ this repository contains the full copyright notices and license terms. -->
         <record model="ir.action.act_window.domain" id="act_invoice_out_invoice_domain_draft_ncb">
             <field name="name">Borrador</field>
             <field name="sequence" eval="10"/>
-            <field name="domain">[('state', '=', 'draft'), ('invoice_type.id', '=', 4)]</field>
+            <field name="domain">[('state', '=', 'draft'), ('invoice_type.id', '=', 8)]</field>
             <field name="act_window" ref="act_invoice_out_invoice_ncb_form"/>
         </record>
         <record model="ir.action.act_window.domain" id="act_invoice_out_invoice_domain_validated_ncb">
             <field name="name">Validado</field>
             <field name="sequence" eval="20"/>
-            <field name="domain">[('state', '=', 'validated'), ('invoice_type.id', '=', 4)]</field>
+            <field name="domain">[('state', '=', 'validated'), ('invoice_type.id', '=', 8)]</field>
             <field name="act_window" ref="act_invoice_out_invoice_ncb_form"/>
         </record>
         <record model="ir.action.act_window.domain" id="act_invoice_out_invoice_domain_posted_ncb">
             <field name="name">Confirmado</field>
             <field name="sequence" eval="30"/>
-            <field name="domain">[('state', '=', 'posted'), ('invoice_type.id', '=', 4)]</field>
+            <field name="domain">[('state', '=', 'posted'), ('invoice_type.id', '=', 8)]</field>
             <field name="act_window" ref="act_invoice_out_invoice_ncb_form"/>
         </record>
         <record model="ir.action.act_window.domain" id="act_invoice_out_invoice_domain_all_ncb">
             <field name="name">Todo</field>
             <field name="sequence" eval="9999"/>
-            <field name="domain">[('invoice_type.id', '=', 4)]</field>
+            <field name="domain">[('invoice_type.id', '=', 8)]</field>
             <field name="act_window" ref="act_invoice_out_invoice_ncb_form"/>
         </record>
 
@@ -199,7 +199,7 @@ this repository contains the full copyright notices and license terms. -->
         <record model="ir.action.act_window" id="act_invoice_out_invoice_nda_form">
             <field name="name">Notas de Debito A</field>
             <field name="res_model">account.invoice</field>
-            <field name="domain">[('type', '=', 'out_invoice'), ('invoice_type.id', '=', 5)]</field>
+            <field name="domain">[('type', '=', 'out_invoice'), ('invoice_type.id', '=', 2)]</field>
             <field name="context">{'type': 'out_invoice'}</field>
             <field name="search_value"></field>
         </record>
@@ -216,25 +216,25 @@ this repository contains the full copyright notices and license terms. -->
         <record model="ir.action.act_window.domain" id="act_invoice_out_invoice_domain_draft_nda">
             <field name="name">Borrador</field>
             <field name="sequence" eval="10"/>
-            <field name="domain">[('state', '=', 'draft'), ('invoice_type.id', '=', 5)]</field>
+            <field name="domain">[('state', '=', 'draft'), ('invoice_type.id', '=', 2)]</field>
             <field name="act_window" ref="act_invoice_out_invoice_nda_form"/>
         </record>
         <record model="ir.action.act_window.domain" id="act_invoice_out_invoice_domain_validated_nda">
             <field name="name">Validado</field>
             <field name="sequence" eval="20"/>
-            <field name="domain">[('state', '=', 'validated'), ('invoice_type.id', '=', 5)]</field>
+            <field name="domain">[('state', '=', 'validated'), ('invoice_type.id', '=', 2)]</field>
             <field name="act_window" ref="act_invoice_out_invoice_nda_form"/>
         </record>
         <record model="ir.action.act_window.domain" id="act_invoice_out_invoice_domain_posted_nda">
             <field name="name">Confirmado</field>
             <field name="sequence" eval="30"/>
-            <field name="domain">[('state', '=', 'posted'), ('invoice_type.id', '=', 5)]</field>
+            <field name="domain">[('state', '=', 'posted'), ('invoice_type.id', '=', 2)]</field>
             <field name="act_window" ref="act_invoice_out_invoice_nda_form"/>
         </record>
         <record model="ir.action.act_window.domain" id="act_invoice_out_invoice_domain_all_nda">
             <field name="name">Todo</field>
             <field name="sequence" eval="9999"/>
-            <field name="domain">[('invoice_type.id', '=', 5)]</field>
+            <field name="domain">[('invoice_type.id', '=', 2)]</field>
             <field name="act_window" ref="act_invoice_out_invoice_nda_form"/>
         </record>
 
@@ -247,7 +247,7 @@ this repository contains the full copyright notices and license terms. -->
         <record model="ir.action.act_window" id="act_invoice_out_invoice_ndb_form">
             <field name="name">Notas de Debito B</field>
             <field name="res_model">account.invoice</field>
-            <field name="domain">[('type', '=', 'out_invoice'), ('invoice_type.id', '=', 6)]</field>
+            <field name="domain">[('type', '=', 'out_invoice'), ('invoice_type.id', '=', 7)]</field>
             <field name="context">{'type': 'out_invoice'}</field>
             <field name="search_value"></field>
         </record>
@@ -264,25 +264,25 @@ this repository contains the full copyright notices and license terms. -->
         <record model="ir.action.act_window.domain" id="act_invoice_out_invoice_domain_draft_ndb">
             <field name="name">Borrador</field>
             <field name="sequence" eval="10"/>
-            <field name="domain">[('state', '=', 'draft'), ('invoice_type.id', '=', 6)]</field>
+            <field name="domain">[('state', '=', 'draft'), ('invoice_type.id', '=', 7)]</field>
             <field name="act_window" ref="act_invoice_out_invoice_ndb_form"/>
         </record>
         <record model="ir.action.act_window.domain" id="act_invoice_out_invoice_domain_validated_ndb">
             <field name="name">Validado</field>
             <field name="sequence" eval="20"/>
-            <field name="domain">[('state', '=', 'validated'), ('invoice_type.id', '=', 6)]</field>
+            <field name="domain">[('state', '=', 'validated'), ('invoice_type.id', '=', 7)]</field>
             <field name="act_window" ref="act_invoice_out_invoice_ndb_form"/>
         </record>
         <record model="ir.action.act_window.domain" id="act_invoice_out_invoice_domain_posted_ndb">
             <field name="name">Confirmado</field>
             <field name="sequence" eval="30"/>
-            <field name="domain">[('state', '=', 'posted'), ('invoice_type.id', '=', 6)]</field>
+            <field name="domain">[('state', '=', 'posted'), ('invoice_type.id', '=', 7)]</field>
             <field name="act_window" ref="act_invoice_out_invoice_ndb_form"/>
         </record>
         <record model="ir.action.act_window.domain" id="act_invoice_out_invoice_domain_all_ndb">
             <field name="name">Todo</field>
             <field name="sequence" eval="9999"/>
-            <field name="domain">[('invoice_type.id', '=', 6)]</field>
+            <field name="domain">[('invoice_type.id', '=', 7)]</field>
             <field name="act_window" ref="act_invoice_out_invoice_ndb_form"/>
         </record>
 
