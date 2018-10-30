@@ -45,7 +45,10 @@ def detalle_a(invoice):
             if line.type == 'line':            
                 unit_price = Decimal(line.unit_price).quantize(Decimal(".01"), rounding=ROUND_DOWN)
                 amount = Decimal(line.amount).quantize(Decimal(".01"), rounding=ROUND_DOWN)
-                ret.append((line.product.name, unit_price, int(line.quantity), amount))
+                if len(line.description)>0:
+            ret.append((line.description, unit_price, int(line.quantity), amount))
+        else:
+            ret.append((line.product.name, unit_price, int(line.quantity), amount))
         return ret
 
    
@@ -56,6 +59,7 @@ def detalle_a(invoice):
     }
 
 def detalle_b(invoice):
+    #import pudb;pu.db
 
     def get_lineas(invoice):
         """
@@ -67,7 +71,11 @@ def detalle_b(invoice):
             if line.type == 'line':            
                 unit_price = Decimal(line.unit_price).quantize(Decimal(".01"), rounding=ROUND_DOWN)
                 amount = Decimal(line.amount).quantize(Decimal(".01"), rounding=ROUND_DOWN)
-                ret.append((line.product.name, unit_price, int(line.quantity), amount))
+                
+        if len(line.description)>0:
+            ret.append((line.description, unit_price, int(line.quantity), amount))
+        else:
+            ret.append((line.product.name, unit_price, int(line.quantity), amount))
         return ret
 
    

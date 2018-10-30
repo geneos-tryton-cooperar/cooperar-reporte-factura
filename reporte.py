@@ -12,34 +12,33 @@ class MyInvoiceReport(Report):
 
         #import pudb;pu.db
         
-        #if invoice.invoice_type.id == 1: #Factura A
-        if invoice.invoice_type.id == 17: #Factura A
+        if invoice.invoice_type.invoice_type == '1': #Factura A
             datos = report_creator.crear_data_factura_a(invoice)
             rml_text = template_fac_a.get(*datos)
             out = rml2pdf.parseString(rml_text)
             return out.read()
-        #elif invoice.invoice_type.id == 6:  #Factura B
-        elif invoice.invoice_type.id == 18:  #Factura B
+        elif invoice.invoice_type.invoice_type == '6':  #Factura B
+        #elif invoice.invoice_type.id == 18:  #Factura B
             datos = report_creator.crear_data_factura_b(invoice)
             rml_text = template_fac_b.get(*datos)
             out = rml2pdf.parseString(rml_text)
             return out.read()
-        elif invoice.invoice_type.id == 3: #Nota de Credito A
+        elif invoice.invoice_type.invoice_type == '3': #Nota de Credito A
             datos = report_creator.crear_data_nota_credito_a(invoice)
             rml_text = template_nota_credito_a.get(*datos)
             out = rml2pdf.parseString(rml_text)
             return out.read()
-        elif invoice.invoice_type.id == 8:  #Nota de Credito B
+        elif invoice.invoice_type.invoice_type == '8':  #Nota de Credito B
             datos = report_creator.crear_data_nota_credito_b(invoice)
             rml_text = template_nota_credito_b.get(*datos)
             out = rml2pdf.parseString(rml_text)
             return out.read()
-        elif invoice.invoice_type.id == 2:  #Nota de Debito A
+        elif invoice.invoice_type.invoice_type == '2':  #Nota de Debito A
             datos = report_creator.crear_data_nota_debito_a(invoice)
             rml_text = template_nota_debito_a.get(*datos)
             out = rml2pdf.parseString(rml_text)
             return out.read()
-        elif invoice.invoice_type.id == 7:  #Nota de Debito B
+        elif invoice.invoice_type.invoice_type == '7':  #Nota de Debito B
             datos = report_creator.crear_data_nota_debito_b(invoice)
             rml_text = template_nota_debito_b.get(*datos)
             out = rml2pdf.parseString(rml_text)
@@ -60,4 +59,3 @@ class MyInvoiceReport(Report):
         Invoice.write([Invoice(invoice.id)], {
             'invoice_report_cache': repo})
         return ('pdf', repo)
-
