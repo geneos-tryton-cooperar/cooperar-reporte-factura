@@ -46,9 +46,9 @@ def detalle_a(invoice):
 				unit_price = Decimal(line.unit_price).quantize(Decimal(".01"), rounding=ROUND_DOWN)
 				amount = Decimal(line.amount).quantize(Decimal(".01"), rounding=ROUND_DOWN)
 				if len(line.description)>0:
-			ret.append((line.description, unit_price, int(line.quantity), amount))
-		else:
-			ret.append((line.product.name, unit_price, int(line.quantity), amount))
+					ret.append((line.description, unit_price, int(line.quantity), amount))
+				else:
+					ret.append((line.product.name, unit_price, int(line.quantity), amount))
 		return ret
 
    
