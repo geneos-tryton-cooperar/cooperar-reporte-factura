@@ -101,7 +101,7 @@ def footer_a(invoice):
 		subtotal = float(subtotal) - float(invoice.tax_amount),
 		subtotaliva = invoice.tax_amount,
 		total = subtotal,
-		cae = 'CAE N°: ' + str(invoice.pyafipws_cae),
+		cae = 'CAE Nro: ' + str(invoice.pyafipws_cae),
 		vencecae = 'Vto.de CAE: ' + str(invoice.pyafipws_cae_due_date.strftime("%d/%m/%Y"))
 	)
 	return ret
@@ -115,7 +115,7 @@ def footer_b(invoice):
 
 	ret = dict(
 		total = subtotal,
-		cae = 'CAE N°: ' + str(invoice.pyafipws_cae),
+		cae = 'CAE Nro: ' + str(invoice.pyafipws_cae),
 		vencecae = 'Vto.de CAE: ' + str(invoice.pyafipws_cae_due_date.strftime("%d/%m/%Y"))
 	)
 	return ret
