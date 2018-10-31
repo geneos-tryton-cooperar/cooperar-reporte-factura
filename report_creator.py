@@ -100,7 +100,9 @@ def footer_a(invoice):
 		subtotalexento = '',  #que es esto
 		subtotal = float(subtotal) - float(invoice.tax_amount),
 		subtotaliva = invoice.tax_amount,
-		total = subtotal
+		total = subtotal,
+		cae = 'CAE N°: ' + str(invoice.pyafipws_cae),
+		vencecae = 'Vto.de CAE: ' + str(invoice.pyafipws_cae_due_date.strftime("%d/%m/%Y"))
 	)
 	return ret
 
@@ -112,7 +114,9 @@ def footer_b(invoice):
 	subtotal = get_total_factura(invoice)
 
 	ret = dict(
-		total = subtotal
+		total = subtotal,
+		cae = 'CAE N°: ' + str(invoice.pyafipws_cae),
+		vencecae = 'Vto.de CAE: ' + str(invoice.pyafipws_cae_due_date.strftime("%d/%m/%Y"))
 	)
 	return ret
 
