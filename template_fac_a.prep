@@ -40,6 +40,7 @@
             <frame id="subtotalgravado" x1="6.2535cm" y1="3.779cm" width="2.8445cm" height="0.6376cm" />
             
             <frame id="cae" x1="9.5355cm" y1="1.3274cm" width="8.6025cm" height="0.6376cm" />
+            <frame id="vencecae" x1="14.5355cm" y1="1.3274cm" width="8.6025cm" height="0.6376cm" />
 
             <!-- /Generado por script -->
         </pageTemplate>
@@ -143,7 +144,11 @@
 
          <setNextFrame name="cae"/>
          <nextFrame/>
-         <para style="txtHeader">CAE: 68425320385892</para>
+         <para style="txtHeader">CAE N°: 68425320385892</para>
+
+         <setNextFrame name="vencecae"/>
+         <nextFrame/>
+         <para style="txtHeader">Vto. de CAE: 06/12/1971</para>
 
     </story>
 </document>
