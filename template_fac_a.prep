@@ -39,6 +39,8 @@
             <frame id="subtotalexento" x1="6.255cm" y1="4.5543cm" width="2.8445cm" height="0.6376cm" />
             <frame id="subtotalgravado" x1="6.2535cm" y1="3.779cm" width="2.8445cm" height="0.6376cm" />
             
+            <frame id="cae" x1="9.5355cm" y1="1.3274cm" width="8.6025cm" height="0.6376cm" />
+            <frame id="vencecae" x1="14.1355cm" y1="1.3274cm" width="8.6025cm" height="0.6376cm" />
 
             <!-- /Generado por script -->
         </pageTemplate>
@@ -139,6 +141,14 @@
          <setNextFrame name="total"/>
          <nextFrame/>
          <para style="txtHeader">{{footer_a["total"]}}</para>
+
+         <setNextFrame name="cae"/>
+         <nextFrame/>
+         <para style="txtHeader">{{footer_a["cae"]}}</para>
+
+         <setNextFrame name="vencecae"/>
+         <nextFrame/>
+         <para style="txtHeader">{{footer_a["vencecae"]}}</para>
 
     </story>
 </document>

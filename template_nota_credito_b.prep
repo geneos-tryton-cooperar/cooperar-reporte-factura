@@ -33,6 +33,9 @@
             <frame id="tabladetalle" x1="0.1226cm" y1="7.2931cm" width="20.7449cm" height="11.504cm" />
 
             <frame id="total" x1="17.9973cm" y1="2.3274cm" width="2.8445cm" height="0.6376cm" />
+
+            <frame id="cae" x1="9.5355cm" y1="1.3274cm" width="8.6025cm" height="0.6376cm" />
+            <frame id="vencecae" x1="14.1355cm" y1="1.3274cm" width="8.6025cm" height="0.6376cm" />
             
             <!-- /Generado por script -->
         </pageTemplate>
@@ -113,6 +116,14 @@
          <setNextFrame name="total"/>
          <nextFrame/>
          <para style="txtHeader">{{footer_b["total"]}}</para>
+
+         <setNextFrame name="cae"/>
+         <nextFrame/>
+         <para style="txtHeader">{{footer_a["cae"]}}</para>
+
+         <setNextFrame name="vencecae"/>
+         <nextFrame/>
+         <para style="txtHeader">{{footer_a["vencecae"]}}</para>
 
     </story>
 </document>
