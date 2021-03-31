@@ -1,6 +1,7 @@
 from trytond.pool import Pool
 import datetime
 from decimal import Decimal, ROUND_DOWN, ROUND_HALF_DOWN
+import tempfile
 
 def header_a(invoice):   
 	
@@ -91,6 +92,19 @@ def footer_a(invoice):
 	
 	def get_total_factura(invoice):
 		return round(invoice.total_amount,2)
+	
+
+	def get_codigo_qr():
+		"""
+		Escribimos el buffer de la imagen del codigo del QR
+		en un tempfile para que lo use el template de la factura.
+		"""
+		if invoice.qr_imagen:
+			temp_file = tempfile.NamedTemporaryFile(delete=False)
+			temp_file.write(invoice.qr_imagen)
+			temp_file.close()
+			return temp_file.name
+		return ""
 
 	subtotal = get_total_factura(invoice)
 
@@ -102,7 +116,8 @@ def footer_a(invoice):
 		subtotaliva = invoice.tax_amount,
 		total = subtotal,
 		cae = 'CAE Nro: ' + str(invoice.pyafipws_cae),
-		vencecae = 'Vto.de CAE: ' + str(invoice.pyafipws_cae_due_date.strftime("%d/%m/%Y"))
+		vencecae = 'Vto.de CAE: ' + str(invoice.pyafipws_cae_due_date.strftime("%d/%m/%Y")),
+		codigo_qr = get_codigo_qr()
 	)
 	return ret
 
@@ -111,12 +126,25 @@ def footer_b(invoice):
 	def get_total_factura(invoice):
 		return round(invoice.total_amount,2)
 
+	def get_codigo_qr():
+		"""
+		Escribimos el buffer de la imagen del codigo del QR
+		en un tempfile para que lo use el template de la factura.
+		"""
+		if invoice.qr_imagen:
+			temp_file = tempfile.NamedTemporaryFile(delete=False)
+			temp_file.write(invoice.qr_imagen)
+			temp_file.close()
+			return temp_file.name
+		return ""
+
 	subtotal = get_total_factura(invoice)
 
 	ret = dict(
 		total = subtotal,
 		cae = 'CAE Nro: ' + str(invoice.pyafipws_cae),
-		vencecae = 'Vto.de CAE: ' + str(invoice.pyafipws_cae_due_date.strftime("%d/%m/%Y"))
+		vencecae = 'Vto.de CAE: ' + str(invoice.pyafipws_cae_due_date.strftime("%d/%m/%Y")),
+		codigo_qr = get_codigo_qr()
 	)
 	return ret
 

@@ -41,6 +41,8 @@
 
             <frame id="cae" x1="9.5355cm" y1="1.3274cm" width="8.6025cm" height="0.6376cm" />
             <frame id="vencecae" x1="14.1355cm" y1="1.3274cm" width="8.6025cm" height="0.6376cm" />
+
+            <frame id="talonario-codigo-qr" x1="0.0000cm" y1="0.3000cm" width="3.0000cm" height="3.0000cm" />
             
 
             <!-- /Generado por script -->
@@ -150,6 +152,17 @@
          <setNextFrame name="vencecae"/>
          <nextFrame/>
          <para style="txtHeader">{{footer_a["vencecae"]}}</para>
+
+         <!-- Codigo QR para talonario -->
+        {{if footer_a["codigo_qr"]:}}
+        <setNextFrame name="talonario-codigo-qr"/>
+        <nextFrame/>
+        
+            <illustration width="3cm" height="3cm">
+            <image file="{{footer_a["codigo_qr"]}}" x="0cm" y="0cm"/>
+            </illustration>      
+
+        {{endif}}
 
     </story>
 </document>
