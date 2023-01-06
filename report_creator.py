@@ -108,16 +108,52 @@ def footer_a(invoice):
 
 	subtotal = get_total_factura(invoice)
 
+	porciva = ''
+	porciva2 = ''
+	porciva3 = ''
+	subtotaliva = 0
+	subtotaliva3 = 0
+	subtotaliva2 = 0
+	for tax_line in invoice.taxes:
+		tax = tax_line.tax
+		if tax.group.name == "IVA":
+			if tax.rate == Decimal('0.21'):
+				porciva = 'IVA 21.00'
+				subtotaliva = subtotaliva + abs(tax_line.amount)
+			elif tax.rate == Decimal('0.105'):
+				porciva3 = 'IVA 10.50'
+				subtotaliva3 = subtotaliva3 + abs(tax_line.amount)
+			elif tax.rate == Decimal('0.025'):
+				porciva2 = 'IVA  2.50'
+				subtotaliva2 = subtotaliva2 + abs(tax_line.amount)
+			else:
+				pass
+
+	if subtotaliva == 0:
+		subtotaliva = ''
+	if subtotaliva3 == 0:
+		subtotaliva3 = ''
+	if subtotaliva2 == 0:
+		subtotaliva2 = ''
+
+
 	ret = dict(
-		porciva = '21',
 		subtotalgravado = '', #que es esto
 		subtotalexento = '',  #que es esto
-		subtotal = float(subtotal) - float(invoice.tax_amount),
-		subtotaliva = invoice.tax_amount,
-		total = subtotal,
+		subtotal = invoice.total_amount - invoice.tax_amount,
+		total=invoice.total_amount,
 		cae = 'CAE Nro: ' + str(invoice.pyafipws_cae),
 		vencecae = 'Vto.de CAE: ' + str(invoice.pyafipws_cae_due_date.strftime("%d/%m/%Y")),
-		codigo_qr = get_codigo_qr()
+		codigo_qr = get_codigo_qr(),
+		
+		#esto lo agrego para poder tener dos tipos de alicuotas distintas
+		porciva=porciva,
+		subtotaliva=subtotaliva,
+		porciva2=porciva2,
+		subtotaliva2=subtotaliva2,
+		porciva3=porciva3,
+		subtotaliva3=subtotaliva3,
+
 	)
 	return ret
 

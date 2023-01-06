@@ -35,6 +35,12 @@
             <frame id="total" x1="17.9973cm" y1="2.3274cm" width="2.8445cm" height="0.6376cm" />
             <frame id="porciva" x1="13.5355cm" y1="3.8496cm" width="2.8445cm" height="0.6376cm" />
             <frame id="subtotaliva" x1="17.9973cm" y1="3.8496cm" width="2.8445cm" height="0.6376cm" />
+
+            <frame id="porciva2" x1="13.5355cm" y1="4.3496cm" width="2.8445cm" height="0.6376cm" />
+            <frame id="subtotaliva2" x1="17.9973cm" y1="4.3496cm" width="2.8445cm" height="0.6376cm" />
+            <frame id="porciva3" x1="13.5355cm" y1="3.3496cm" width="2.8445cm" height="0.6376cm" />
+            <frame id="subtotaliva3" x1="17.9973cm" y1="3.3496cm" width="2.8445cm" height="0.6376cm" />
+
             <frame id="subtotal" x1="17.9973cm" y1="5.8729cm" width="2.8445cm" height="0.6376cm" />
             <frame id="subtotalexento" x1="6.255cm" y1="4.5543cm" width="2.8445cm" height="0.6376cm" />
             <frame id="subtotalgravado" x1="6.2535cm" y1="3.779cm" width="2.8445cm" height="0.6376cm" />
@@ -140,6 +146,22 @@
          <setNextFrame name="subtotaliva"/>
          <nextFrame/>
          <para style="txtHeader">{{footer_a["subtotaliva"]}}</para>
+
+         <setNextFrame name="porciva2"/>
+         <nextFrame/>
+         <para style="txtHeader">{{footer_a["porciva2"]}}</para>
+
+         <setNextFrame name="subtotaliva2"/>
+         <nextFrame/>
+         <para style="txtHeader">{{footer_a["subtotaliva2"]}}</para>
+
+         <setNextFrame name="porciva3"/>
+         <nextFrame/>
+         <para style="txtHeader">{{footer_a["porciva3"]}}</para>
+
+         <setNextFrame name="subtotaliva3"/>
+         <nextFrame/>
+         <para style="txtHeader">{{footer_a["subtotaliva3"]}}</para>
 
          <setNextFrame name="total"/>
          <nextFrame/>
