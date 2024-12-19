@@ -176,11 +176,24 @@ def footer_b(invoice):
 
 	subtotal = get_total_factura(invoice)
 
+	#calculo los montos para el regimen 27743
+	subtotaliva = 0
+	subtotalimp = 0
+	for tax_line in invoice.taxes:
+		tax = tax_line.tax
+		if tax.group.name == "IVA":
+			subtotaliva = subtotaliva + abs(tax_line.amount)
+		else:
+			subtotalimp = subtotalimp + abs(tax_line.amount)
+
+
 	ret = dict(
 		total = subtotal,
 		cae = 'CAE Nro: ' + str(invoice.pyafipws_cae),
 		vencecae = 'Vto.de CAE: ' + str(invoice.pyafipws_cae_due_date.strftime("%d/%m/%Y")),
-		codigo_qr = get_codigo_qr()
+		codigo_qr = get_codigo_qr(),
+		regimen_iva = "{:.2f}".format(subtotaliva),
+		regimen_impuestos = "{:.2f}".format(subtotalimp)
 	)
 	return ret
 

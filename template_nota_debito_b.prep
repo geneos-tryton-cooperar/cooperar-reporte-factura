@@ -38,6 +38,11 @@
             <frame id="vencecae" x1="14.1355cm" y1="1.3274cm" width="8.6025cm" height="0.6376cm" />
 
             <frame id="talonario-codigo-qr" x1="0.0000cm" y1="0.3000cm" width="3.0000cm" height="3.0000cm" />
+
+            <frame id="regimen-leyenda-iva" x1="6.5350cm" y1="4.0000cm" width="3.0000cm" height="0.6376cm" />
+            <frame id="regimen-leyenda-impuestos" x1="1.0000cm" y1="3.5000cm" width="10.0000cm" height="0.6376cm" />
+            <frame id="regimen-leyenda-iva-importe" x1="9.2000cm" y1="4.0000cm" width="3.0000cm" height="0.6376cm" />
+            <frame id="regimen-leyenda-impuestos-importe" x1="9.2000cm" y1="3.5000cm" width="3.0000cm" height="0.6376cm" />
             
             <!-- /Generado por script -->
         </pageTemplate>
@@ -126,6 +131,22 @@
          <setNextFrame name="vencecae"/>
          <nextFrame/>
          <para style="txtHeader">{{footer_b["vencecae"]}}</para>
+
+        <setNextFrame name="regimen-leyenda-iva"/>
+         <nextFrame/>
+         <para style="txtHeader">IVA Contenido: $</para>
+
+         <setNextFrame name="regimen-leyenda-iva-importe"/>
+         <nextFrame/>
+         <para style="txtTituloDerecha">{{footer_b["regimen_iva"]}}</para>
+
+         <setNextFrame name="regimen-leyenda-impuestos"/>
+         <nextFrame/>
+         <para style="txtHeader">Otros Impuestos Nacionales Indirectos: $</para>
+
+         <setNextFrame name="regimen-leyenda-impuestos-importe"/>
+         <nextFrame/>
+         <para style="txtTituloDerecha">{{footer_b["regimen_impuestos"]}}</para>
 
           <!-- Codigo QR para talonario -->
         {{if footer_b["codigo_qr"]:}}
