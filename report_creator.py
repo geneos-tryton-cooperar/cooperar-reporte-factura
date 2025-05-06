@@ -68,15 +68,17 @@ def detalle_b(invoice):
 		tuplas: (nombre product, precio unitario, cantidad, importe de la linea)
 		"""
 		ret = []
+		unit_price = 0
+		amount = 0
 		for line in invoice.lines:
 			if line.type == 'line':            
 				unit_price = Decimal(line.unit_price).quantize(Decimal(".01"), rounding=ROUND_DOWN)
 				amount = Decimal(line.amount).quantize(Decimal(".01"), rounding=ROUND_DOWN)
 				
-		if len(line.description)>0:
-			ret.append((line.description, unit_price, int(line.quantity), amount))
-		else:
-			ret.append((line.product.name, unit_price, int(line.quantity), amount))
+			if len(line.description)>0:
+				ret.append((line.description, unit_price, int(line.quantity), amount))
+			else:
+				ret.append((line.product.name, unit_price, int(line.quantity), amount))
 		return ret
 
    
